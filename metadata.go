@@ -508,10 +508,7 @@ func getTableMetadata(session *Session, keyspaceName string) ([]TableMetadata, e
 			columnfamily_name,
 			key_validator,
 			comparator,
-			default_validator,
-			key_aliases,
-			column_aliases,
-			value_alias
+			default_validator
 		FROM system.schema_columnfamilies
 		WHERE keyspace_name = ?`
 
@@ -521,9 +518,6 @@ func getTableMetadata(session *Session, keyspaceName string) ([]TableMetadata, e
 				&table.KeyValidator,
 				&table.Comparator,
 				&table.DefaultValidator,
-				&keyAliasesJSON,
-				&columnAliasesJSON,
-				&table.ValueAlias,
 			)
 		}
 	} else {
