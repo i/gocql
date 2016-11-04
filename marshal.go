@@ -1094,7 +1094,6 @@ func unmarshalTimestamp(info TypeInfo, data []byte, value interface{}) error {
 		return nil
 	case *time.Time:
 		if len(data) == 0 {
-			*v = time.Time{}
 			return nil
 		}
 		x := decBigInt(data)
